@@ -19,7 +19,7 @@ class Investment:
     
     @present_value.setter
     def present_value(self, value):
-        self.present_value = value
+        self.__present_value = value
 
     @property
     def duration(self):
@@ -27,27 +27,22 @@ class Investment:
     
     @duration.setter
     def duration(self, value):
-        self.duration = value
+        self.__duration = value
 
     @property
     def interest(self):
-        return self.interest
+        return self.__interest
     
     @interest.setter
     def interest(self, value):
-        self.interest = value
+        self.__interest = value
 
     # function to calculate and return the future value of investment
     def calculate_future_value(self):
         future_value = self.present_value * (1 + self.__interest/100)** self.__duration
         return future_value
     
-    # create __str__ method TODO
+    # create __str__ method
     def __str__(self):
-        return f'The future value of an investment of ${self.present_value:.2f} for a duration of {self.duration} year(s) at an interest rate of {self.interest:.2f}% is ${self.calculate_future_value():.2f}.'
-
-    # class methods
-    @classmethod
-    def summary_info(cls):
-        return f'The future value of an investment of ${cls.present_value:.2f} for a duration of {cls.duration} year(s) at an interest rate of {cls.interest:.2f}% is ${cls.calculate_future_value():.2f}.'
+        return f'The future value of an investment of ${self.present_value:,.2f} for a duration of {self.duration} year(s) at an interest rate of {self.interest:.2f}% is ${self.calculate_future_value():,.2f}.'
 

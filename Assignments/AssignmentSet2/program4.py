@@ -26,13 +26,9 @@ def main():
     # create Investment object 
     my_investment = investment.Investment(present_value=present_investment_value_int, investment_duration=investment_duration, annual_interest=annual_interest_rate)
 
-    # call future_value method from the initialized Investment object
-    my_investment_value = my_investment.calculate_future_value()
-
-    print(f'my_investment_value {my_investment_value}')
-
-    # format & print results for user
-    print(f'Summary Info Call {investment.Investment.summary_info()}')
+    # print formatted results using __str__ method
+    print(my_investment)
+ 
 
 # call main function to start program
 main()
