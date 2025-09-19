@@ -1,4 +1,4 @@
-# Project:          Module 3 - Example 2
+squ# Project:          Module 3 - Example 2
 # Description:      Class definition for a food item
 # Demonstrates:     "Private" method
 # Developed By:     LV

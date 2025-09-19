@@ -6,7 +6,7 @@
 import futurevalue_calculator
 
 # get present investment value as user input string, may or may not include commas 
-present_investment_value_input_string = input("Please enter the current value of your investment: ")
+present_investment_value_input_string = input('Please enter the current value of your investment: ')
 # remove the commas from the user input
 cleaned_investment_value_input = present_investment_value_input_string.replace(",", "")
 # convert to integer

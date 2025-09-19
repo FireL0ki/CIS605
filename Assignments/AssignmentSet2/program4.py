@@ -1,7 +1,7 @@
-# Description: 
+# Description: Module that gets user input & imports the Investment object to make use of it and its methods
 # Developer: Sif Oberon
 # Date Created: 9.16.2025
-# Date Last Modified: 9.16.2025
+# Date Last Modified: 9.19.2025
 
 # import the investment module
 import investment
@@ -12,7 +12,7 @@ def main():
     # get values from a user as inputs & assign to variables
 
     # get present investment value as user input string, may or may not include commas 
-    present_investment_value_input_string = input("Please enter the current value of your investment: ")
+    present_investment_value_input_string = input('Please enter the current value of your investment: ')
     # remove the commas from the user input
     cleaned_investment_value_input = present_investment_value_input_string.replace(",", "")
     # convert to integer

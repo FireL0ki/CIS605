@@ -1,7 +1,7 @@
-# Description: Modules that creates an Invesment class object & its corresponding attributes & functions
+# Description: Module that creates an Investment class object & its corresponding attributes & functions
 # Developer: Sif Oberon
 # Date Created: 9.16.2025
-# Date Last Modified: 9.16.2025
+# Date Last Modified: 9.19.2025
 
 # create a class called Investment
 class Investment:
