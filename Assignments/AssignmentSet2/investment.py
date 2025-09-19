@@ -12,30 +12,18 @@ class Investment:
         self.__duration = investment_duration
         self.__interest = annual_interest
 
-    # create getters & setters for the Investment objects so their attributes can be accessed
+    # create getters for the Investment objects so their attributes can be accessed
     @property
     def present_value(self):
         return self.__present_value
-    
-    @present_value.setter
-    def present_value(self, value):
-        self.__present_value = value
 
     @property
     def duration(self):
         return self.__duration
-    
-    @duration.setter
-    def duration(self, value):
-        self.__duration = value
 
     @property
     def interest(self):
         return self.__interest
-    
-    @interest.setter
-    def interest(self, value):
-        self.__interest = value
 
     # function to calculate and return the future value of investment
     def calculate_future_value(self):
