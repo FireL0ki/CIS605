@@ -53,6 +53,6 @@ class Deck:
     
     # create a str method to display the values of the object's attributes
     def __str__(self):
-        return f'The cost of building a {self.square_footage:,} square foot deck with lumber costing ${self.calculate_lumber_cost():.2f} per square foot and stain costing ${self.cost_per_gallon} per gallon is ${self.calculate_building_cost():,.2f}'
+        return f'The cost of building a {self.square_footage:,} square foot deck with lumber costing ${self.calculate_lumber_cost():,.2f} per square foot and stain costing ${self.cost_per_gallon} per gallon is ${self.calculate_building_cost():,.2f}.'
 
     
