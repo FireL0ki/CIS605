@@ -17,10 +17,6 @@ class Car2:
         # do not need a parameter, as we've already set the value
         self.__car_speed = 0
 
-    def sample(self):
-        test = self.car_colour
-        return test
-
     # endregion
 
     # region properties (getters & setters)
