@@ -9,6 +9,22 @@
 # > 6 and <= 10 pounds: $4.75 per pound
 # > 10 pounds: $5 per pound
 
+def calc_shipping_charge(package_weight):
+    price_per_pound = 0
+
+    if package_weight <= 2:
+        price_per_pound = 2.25
+    elif package_weight <= 6:
+        price_per_pound = 3.50
+    elif package_weight <= 10:
+        price_per_pound = 4.75
+    else:
+        price_per_pound = 5
+    
+    shipping_charge = package_weight * price_per_pound
+    
+    return shipping_charge
+
 
 
 # Write a function (with a parameter for roulette number) that returns the color of a number on a roulette wheel. The colors of the pockets are follows:
