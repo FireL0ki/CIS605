@@ -27,9 +27,8 @@ class Car_Rental:
         RENTAL_CHARGE_PER_DAY = 62.50
         CHARGE_PER_MILE = .57
 
-        
 
-        rental_charge = 
+        # return rental_charge
 
 # __str__ method that returns relevant information about a car_rental object’s state (i.e., its attributes
 # and their current values) as a string with appropriate labels and formatting.

@@ -12,8 +12,16 @@ class Car4:
         self.__car_type = type
 
         # calling the instance method on itself, needs to be self.__set_car_size()
+        # these first two are different versions of working with if statements
         # self.__car_size = self.__set_car_size()
-        self.__car_size = self.__find_car_size()
+        # self.__car_size = self.__find_car_size()
+
+        # another version -- if and
+        self.__car_size = self.__determine_car_size()
+        # this version uses match / case
+        self.__car_size = self.__identify_car_size()
+
+
 
     # region getters & setters
     # define getters & setters for the attributes
@@ -85,6 +93,7 @@ class Car4:
         
         return size
     
+    # nested if statements
     def __find_car_size(self):
         # can use nested if - check the type of car first, then within that, check the volumes of that car type
         size = ""
@@ -111,7 +120,57 @@ class Car4:
 
         return size
 
-    # endregion
+    # multiple conditions with logical operator
+    def __determine_car_size(self):
+        size = ""
+
+        if self.car_type == "Sedan" and self.car_volume < 85:
+            size = "Minicompact"
+        elif self.car_type == "Sedan" and self.car_volume < 100:
+            size = "Subcompact"
+        elif self.car_type == "Sedan" and self.car_volume < 110:
+             size = "Compact"
+        elif self.car_type == "Sedan" and self.car_volume < 120:
+            size = "Mid-size"
+        elif self.car_type == "Sedan" and self.car_volume >= 120:
+            size = "Large"
+        
+        elif self.car_type == "Station Wagon" and self.car_volume < 130:
+            size = "Small"
+        elif self.car_type == "Station Wagon" and self.car_volume < 160:
+            size = "Mid-size"
+        elif self.car_type == "Station Wagon" and self.car_volume >= 160:
+            size = "Large"
+        
+        return size
+    
+    # use match for comparisons
+    def __identify_car_size(self):
+        size = ""
+
+        # can check two conditions at once
+        match(self.car_type, self.car_volume):
+            case(x, y) if x == "Sedan" and y < 85:
+                size = "Minicompact"
+            case(x, y) if x == "Sedan" and y < 100:
+                size = "Subcompact"
+            case(x, y) if x == "Sedan" and y < 110:
+                size = "Compact"
+            case(x, y) if x == "Sedan" and y < 120:
+                size = "Mid-size"
+            case(x, y) if x == "Sedan" and y >= 120:
+                size = "Large"
+
+            case(x, y) if x == "Station Wagon" and y < 130:
+                size = "Small"
+            case(x, y) if x == "Station Wagon" and y < 160:
+                size = "Mid-size"
+            case(x, y) if x == "Station Wagon" and y >= 160:
+                size = "Large"
+
+        return size
 
     def __str__(self):
         return f'Make: {self.car_make}\nModel: {self.car_model}\nVolume: {self.car_volume:,}\nType: {self.car_type}\nSize: {self.car_size}'
+
+    # endregion
