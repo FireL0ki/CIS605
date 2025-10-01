@@ -1,10 +1,7 @@
-# Description: 
+# Description: Walk class that has the walker's name, # steps, and length of step, and a method to calculate miles walked based on those variables
 # Developer: Sif Oberon
 # Date Created: 9.26.2025
 # Date Last Modified:
-
-# Create a module (walk.py) for a class (Walk) that has
-
 
 class Walk:
     # initializer & 3 private attributes: walker’s name, wumber of steps, length of typical step
@@ -42,11 +39,12 @@ class Walk:
     # A public instance method to calculate and return the miles walked
     # miles walked = (number of steps * length of typical step) / 63360
     def calc_miles_walked(self):
-        miles_walked = (self.number_steps * self.step_length) / 63360
+        INCHES_IN_MILE = 63360
+        miles_walked = (self.number_steps * self.step_length) / INCHES_IN_MILE
         return miles_walked
     
     def __str__(self):
-        return f'If you walked {self.number_steps} steps & have a step length of {self.step_length}, your miles walked would be: {self.calc_miles_walked()}'
+        return f'If you walked {self.number_steps} steps & have a step length in inches of {self.step_length}, your miles walked would be: {self.calc_miles_walked()}'
 
 
 

@@ -112,3 +112,6 @@ class Car4:
         return size
 
     # endregion
+
+    def __str__(self):
+        return f'Make: {self.car_make}\nModel: {self.car_model}\nVolume: {self.car_volume:,}\nType: {self.car_type}\nSize: {self.car_size}'
