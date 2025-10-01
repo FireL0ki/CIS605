@@ -16,10 +16,14 @@ class Car4:
         # self.__car_size = self.__set_car_size()
         # self.__car_size = self.__find_car_size()
 
-        # another version -- if and
-        self.__car_size = self.__determine_car_size()
-        # this version uses match / case
-        self.__car_size = self.__identify_car_size()
+        # If / And
+        # self.__car_size = self.__determine_car_size()
+        # Match / Case
+        # self.__car_size = self.__identify_car_size()
+        # another match version
+        # self.__car_size = self.__assign_car_size()
+        # Ternary Operators
+        self.__car_size = self.__define_car_size()
 
 
 
@@ -169,6 +173,42 @@ class Car4:
                 size = "Large"
 
         return size
+    
+    # another match version
+    def __assign_car_size(self):
+
+        size = ""
+
+        match self.car_type:
+            case "Sedan" if self.car_volume < 85:
+                size = "Minicompact"
+            case "Sedan" if self.car_volume < 100:
+                size = "Subcompact"
+            case "Sedan" if self.car_volume < 110:
+                size = "Compact"
+            case "Sedan" if self.car_volume < 120:
+                size = "Mid-size"
+            case "Sedan" if self.car_volume >= 120:
+                size = "Large"
+
+            case "Station Wagon" if self.car_volume < 130:
+                size = "Small"
+            case "Station Wagon" if self.car_volume < 160:
+                size = "Mid-size"
+            case "Station Wagon" if self.car_volume >= 160:
+                size = "Large"
+    
+        return size
+    
+    # ternary operator
+    def __define_car_size(self):
+
+        # concise one line if statement
+        # set size to Standard if car_type is Sedan, else set it to Large
+        size = "Standard" if self.car_type == "Sedan" else "Large"
+
+        return size
+    
 
     def __str__(self):
         return f'Make: {self.car_make}\nModel: {self.car_model}\nVolume: {self.car_volume:,}\nType: {self.car_type}\nSize: {self.car_size}'
