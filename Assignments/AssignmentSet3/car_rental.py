@@ -1,7 +1,7 @@
-# Description: 
+# Description: A module for a car rental class that stores attributes related to odometer readings & rental days, and has a method to calculate rental charge
 # Developer: Sif Oberon
 # Date Created: 9.26.2025
-# Date Last Modified:
+# Date Last Modified: 10.5.2025
 
 class Car_Rental:
     # initialize the attributes (i.e., customer name, ending odometer reading, beginning odometer 

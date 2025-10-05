@@ -1,7 +1,7 @@
-# Description: 
+# Description: Calculates & displays pay information based on user inputs
 # Developer: Sif Oberon
 # Date Created: 9.26.2025
-# Date Last Modified:
+# Date Last Modified: 10.5.2025
 
 from pay_stub import Pay_Stub
 

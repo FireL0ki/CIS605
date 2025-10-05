@@ -1,7 +1,7 @@
 # Description: Walk class that has the walker's name, # steps, and length of step, and a method to calculate miles walked based on those variables
 # Developer: Sif Oberon
 # Date Created: 9.26.2025
-# Date Last Modified:
+# Date Last Modified: 10.5.2025
 
 class Walk:
     # initializer & 3 private attributes: walker’s name, wumber of steps, length of typical step

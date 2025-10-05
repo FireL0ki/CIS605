@@ -1,7 +1,7 @@
-# Description: 
+# Description: A pay stub class that contains class attributes & instance attributes to track pay rate & hours worked information, and methods to calculate net pay and track totals
 # Developer: Sif Oberon
 # Date Created: 9.26.2025
-# Date Last Modified:
+# Date Last Modified: 10.5.2025
 
 
 # 4 instance attributes: Employee name (private), Hours worked (private), Pay rate (private), Net pay (private)
