@@ -3,9 +3,6 @@
 # Date Created: 9.26.2025
 # Date Last Modified: 10.5.2025
 
-# Create another module (program7.py) that
-# • Imports the Car_Rental class from the class_rental module.
-
 from car_rental import Car_Rental
 
 # declare module-level variable
