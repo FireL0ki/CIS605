@@ -26,7 +26,6 @@ class Car4:
         self.__car_size = self.__define_car_size()
 
 
-
     # region getters & setters
     # define getters & setters for the attributes
     @property
@@ -43,7 +42,7 @@ class Car4:
     
     @car_model.setter
     def car_model(self, value):
-        car_model = value
+        self.__car_model = value
 
     @property
     def car_volume(self):
