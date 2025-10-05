@@ -72,7 +72,7 @@ class Pay_Stub:
 
     # __str__ method that returns relevant information about a pay_stub object’s state (its attributes and their current values)
     def __str__(self):
-        return f'Employee Name: {self.employee_name}\nHours Worked: {self.hours_worked}\nPay Rate: ${self.pay_rate:,.2f}\nNet Pay: ${self.net_pay:,.2f}'
+        return f'\nEmployee Name: {self.employee_name}\nHours Worked: {self.hours_worked}\nPay Rate: ${self.pay_rate:,.2f}\nNet Pay: ${self.net_pay:,.2f}\n'
 
     # private class method that increments the three class attributes
     @classmethod
@@ -93,4 +93,4 @@ class Pay_Stub:
     # public class method that returns summary info (total # pay stubs, total gross pay, total net pay, and average net pay) as a string
     @classmethod
     def summary_info(cls):
-        return f'Total Number of Pay Stubs: {cls.__total_number_pay_stubs}\nTotal Gross Pay: ${cls.__total_gross_pay:,.2f}\nTotal Net Pay: ${cls.__total_net_pay:,.2f}\nAverage Net Pay: ${cls.__calc_average_net_pay():,.2f}'
+        return f'Total Number of Pay Stubs: {cls.__total_number_pay_stubs}\nTotal Gross Pay: ${cls.__total_gross_pay:,.2f}\nTotal Net Pay: ${cls.__total_net_pay:,.2f}\nAverage Net Pay: ${cls.__calc_average_net_pay():,.2f}\n'
