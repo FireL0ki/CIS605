@@ -46,13 +46,3 @@ def print_object():
 
 # call main method to start program
 main()
-
-# Car Rental Fee Calculator
-# Enter the customer's name: Amy Parsons
-# Enter the beginning odometer reading: 5678
-# Enter the ending odometer reading: 6321
-# Enter the number of rental days: 3
-# Customer Name: Amy Parsons
-# Number of Rental Days: 3
-# Miles Driven: 643
-# Rental Charge: $554.01

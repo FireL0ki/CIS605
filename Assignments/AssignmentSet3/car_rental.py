@@ -33,4 +33,5 @@ class Car_Rental:
     # __str__ method that returns relevant information about a car_rental object’s state (i.e., its attributes
     # and their current values) as a string with appropriate labels and formatting.
     def __str__(self):
-        return f'For a car rented for {self.days_rented} with an odometer that started on {self.begin_odometer_reading} and ended on {self.ending_odometer_reading} for a total of {self.ending_odometer_reading - self.begin_odometer_reading} miles driven, the rental charge would be {self.rental_charge}'
+        # return f'For a car rented for {self.days_rented} with an odometer that started on {self.begin_odometer_reading} and ended on {self.ending_odometer_reading} for a total of {self.ending_odometer_reading - self.begin_odometer_reading} miles driven, the rental charge would be {self.rental_charge}'
+        return f'Customer Name: {self.customer_name}\nNumber of Rental Days: {self.days_rented}\nMiles Driven: {self.ending_odometer_reading - self.begin_odometer_reading:,}\nRental Charge:${self.rental_charge:,.2f}'
