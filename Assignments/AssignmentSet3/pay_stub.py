@@ -3,9 +3,6 @@
 # Date Created: 9.26.2025
 # Date Last Modified: 10.5.2025
 
-
-# 4 instance attributes: Employee name (private), Hours worked (private), Pay rate (private), Net pay (private)
-
 class Pay_Stub:
     # class attributes are common to all objects/instances
     # declare 3 class attributes: Total number of pay stubs (private), Total gross pay (private), Total net pay (private)
