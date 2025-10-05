@@ -39,6 +39,7 @@ class Walk:
     # A public instance method to calculate and return the miles walked
     # miles walked = (number of steps * length of typical step) / 63360
     def calc_miles_walked(self):
+        # declare constant for inches in a mile
         INCHES_IN_MILE = 63360
         miles_walked = (self.number_steps * self.step_length) / INCHES_IN_MILE
         return miles_walked
