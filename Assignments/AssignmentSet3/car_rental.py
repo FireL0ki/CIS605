@@ -11,14 +11,13 @@ class Car_Rental:
         self.begin_odometer_reading = begin_odometer_reading
         self.ending_odometer_reading = ending_odometer_reading
         self.days_rented = days_rented
+        # call the private instance method to calculate the rental charge
         self.__rental_charge = self.__calc_rental_charge()
 
     # create getter for private attribute
-    # call the private instance method & return the rental charge
     @property
     def rental_charge(self):
         return self.__rental_charge
-
 
     # private instance method that calculates & returns the rental charge | Rental charge = $62.50 per day + $0.57 per mile
     def __calc_rental_charge(self):
@@ -30,8 +29,6 @@ class Car_Rental:
 
         return rental_charge
 
-    # __str__ method that returns relevant information about a car_rental object’s state (i.e., its attributes
-    # and their current values) as a string with appropriate labels and formatting.
+    # __str__ method that returns relevant information about a car_rental object’s state (its attributes and their current values) as a string with appropriate labels and formatting
     def __str__(self):
-        # return f'For a car rented for {self.days_rented} with an odometer that started on {self.begin_odometer_reading} and ended on {self.ending_odometer_reading} for a total of {self.ending_odometer_reading - self.begin_odometer_reading} miles driven, the rental charge would be {self.rental_charge}'
         return f'Customer Name: {self.customer_name}\nNumber of Rental Days: {self.days_rented}\nMiles Driven: {self.ending_odometer_reading - self.begin_odometer_reading:,}\nRental Charge:${self.rental_charge:,.2f}'
