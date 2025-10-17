@@ -33,13 +33,6 @@ class Catering_Event:
     def total_charge(self):
         return self.__total_charge
     
-    # # data validation for user inputs of entree_choice
-    # @entree_choice.setter
-    # def entree_choice(self, value):
-    #     if self.entree_choice.upper() != "CHICKEN" or "STEAK" or "PASTA":
-    #         raise ValueError("Entree choice must either be chicken, steak, or pasta.")
-    #     self.entree_choice = value
-    
     # endregion
     
 
