@@ -22,7 +22,7 @@ def get_user_inputs():
     # print the pay_stub object
     print(my_pay_stub)
 
-# call the class method that returns summary information and prints the result
+    # call the class method that returns summary information and prints the result
     print(f'Summary Info: {my_pay_stub.summary_info()}')
 
 # call the main function three times to verify that the summary information is correct

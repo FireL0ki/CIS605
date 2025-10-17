@@ -60,9 +60,6 @@ class Pay_Stub:
 
         # calculate net pay
         net_pay = gross_pay - fed_income_tax - state_income_tax - social_security_tax - medicare_tax
-
-        # # call the class method that increments the three class attributes - must be called on the class
-        # Pay_Stub.__increment_class_attributes(self)
         
         # return net pay
         return net_pay
