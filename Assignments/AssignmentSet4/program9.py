@@ -5,10 +5,11 @@
 
 from catering_event import Catering_Event
 
-def main():
-    # module level variable for catering_event object
-    my_catering_event = None
+# module level variable for catering_event object
+my_catering_event = None
 
+
+def main():
     print('Oberon Catering')
 
     get_user_catering_choices()
@@ -65,11 +66,11 @@ def print_catering_object():
 
 # check if the user would like to update the catering event
 def check_if_update_catering_event():
-    update_catering_info = input('Would you like to update any of the catering event details? Enter Y or N: ')
+    update_catering_info = input("Would you like to update any of the catering event details? Enter Y or N: ")
     if update_catering_info.upper() == "Y":
         update_catering_event()
     else:
-        print('Thank you for choosing Oberon Catering!')
+        print("Thank you for choosing Oberon Catering!")
 
 
 def update_catering_event():
