@@ -1,7 +1,7 @@
 # Description: Program that takes user inputs with property details and uses them to calculate property taxes
 # Developer: Sif Oberon
 # Date Created: 10.16.2025
-# Date Last Modified: 10.17.2025
+# Date Last Modified: 10.19.2025
 
 from property_tax import Property_Tax
 

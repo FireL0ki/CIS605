@@ -1,7 +1,7 @@
 # Description: A module for a catering event class
 # Developer: Sif Oberon
 # Date Created: 10.16.2025
-# Date Last Modified: 10.17.2025
+# Date Last Modified: 10.19.2025
 
 class Catering_Event:
     # initialize attributes of new object
@@ -46,7 +46,7 @@ class Catering_Event:
 
         guest_entree_cost = 0
 
-        match self.entree_choice:
+        match self.entree_choice.lower():
             case "steak":
                 guest_entree_cost = STEAK_COST
             case "chicken":
@@ -62,6 +62,7 @@ class Catering_Event:
 
         return entree_charge
     
+
     def __calc_drinks_charge(self):
         open_bar_charge = 56.87 * self.number_guests if self.open_bar else 0
         wine_with_dinner_charge = 39.24 * self.number_guests if self.wine_with_dinner else 0
@@ -69,6 +70,7 @@ class Catering_Event:
 
         return drinks_charge
     
+
     def __calc_surcharge(self):
 
         if self.number_guests > 40 and self.open_bar is True:
@@ -78,11 +80,19 @@ class Catering_Event:
         else:
             return 0
         
+
     def __calc_total_charge(self):
         total_charge = self.entree_charge + self.drinks_charge + self.surcharge
 
         return total_charge
     
+    def recalculate_charges(self):
+        self.__entree_charge = self.__calc_entree_charge()
+        self.__drinks_charge = self.__calc_drinks_charge()
+        self.__surcharge = self.__calc_surcharge()
+        self.__total_charge = self.__calc_total_charge()
+    
+
     def __str__(self):
         return f'Event Name: {self.event_name}\nNumber of Guests: {self.number_guests}\nEntree Choice: {self.entree_choice}\nOpen Bar: {self.open_bar}\nWine with Dinner: {self.wine_with_dinner}\nEntree Charge: ${self.entree_charge:,.2f}\nDrinks Charge: ${self.drinks_charge:,.2f}\nSurcharge: ${self.surcharge:,.2f}\nTotal Charge: ${self.total_charge:,.2f}'
         

@@ -1,7 +1,7 @@
 # Description: Class for a property tax object
 # Developer: Sif Oberon
 # Date Created: 10.16.2025
-# Date Last Modified: 10.17.2025
+# Date Last Modified: 10.19.2025
 
 from datetime import date
 
@@ -62,11 +62,6 @@ class Property_Tax:
         BASE_CHARGE_3001_TO_4000_FEET = 2220
         BASE_CHARGE_OVER_4000_FEET = 3000
 
-        TOTAL_COST_FIRST_1000_SQUARE_FEET = 1000 * PRICE_0_TO_1000_FEET_RATE
-        TOTAL_COST_1001_TO_2000_SQUARE_FEET = 1000 * PRICE_OVER_1000_FEET_RATE
-        TOTAL_COST_2001_TO_3000_SQUARE_FEET = 1000 * PRICE_OVER_2000_FEET_RATE
-        TOTAL_COST_3001_TO_4000_SQUARE_FEET = 1000 * PRICE_OVER_3000_FEET_RATE
-
         if self.building_square_footage <= 1000:
             building_tax = self.building_square_footage * PRICE_0_TO_1000_FEET_RATE
             return building_tax
@@ -76,8 +71,7 @@ class Property_Tax:
             amount_square_footage_over_1000 = self.building_square_footage - 1000
             # calculate cost of the number of square feet over 1000 square feet
             calculated_cost_of_square_feet_over_1000 = amount_square_footage_over_1000 * PRICE_OVER_1000_FEET_RATE
-            # Building tax = base_charge + square footage cost for 0 to 1000 + square footage cost for any footage over 1000 square feet
-            building_tax = BASE_CHARGE_1001_TO_2000_FEET + TOTAL_COST_FIRST_1000_SQUARE_FEET + calculated_cost_of_square_feet_over_1000
+            building_tax = BASE_CHARGE_1001_TO_2000_FEET + calculated_cost_of_square_feet_over_1000
 
             return building_tax
         
@@ -85,8 +79,7 @@ class Property_Tax:
             amount_square_footage_over_2000 = self.building_square_footage - 2000
             calculated_cost_of_square_feet_over_2000 = amount_square_footage_over_2000 * PRICE_OVER_2000_FEET_RATE
 
-            first_2000_feet_cost = TOTAL_COST_FIRST_1000_SQUARE_FEET + TOTAL_COST_1001_TO_2000_SQUARE_FEET
-            building_tax = BASE_CHARGE_2001_TO_3000_FEET + first_2000_feet_cost + calculated_cost_of_square_feet_over_2000
+            building_tax = BASE_CHARGE_2001_TO_3000_FEET + calculated_cost_of_square_feet_over_2000
 
             return building_tax
         
@@ -94,9 +87,7 @@ class Property_Tax:
             amount_square_footage_over_3000 = self.building_square_footage - 3000
             calculated_cost_of_square_feet_over_3000 = amount_square_footage_over_3000 * PRICE_OVER_3000_FEET_RATE
 
-            first_3000_feet_cost = TOTAL_COST_FIRST_1000_SQUARE_FEET + TOTAL_COST_1001_TO_2000_SQUARE_FEET + TOTAL_COST_2001_TO_3000_SQUARE_FEET
-
-            building_tax = BASE_CHARGE_3001_TO_4000_FEET + first_3000_feet_cost + calculated_cost_of_square_feet_over_3000
+            building_tax = BASE_CHARGE_3001_TO_4000_FEET + calculated_cost_of_square_feet_over_3000
             
             return building_tax
 
@@ -104,9 +95,7 @@ class Property_Tax:
             amount_square_footage_over_4000 = self.building_square_footage - 4000
             calculated_cost_of_square_feet_over_4000 = amount_square_footage_over_4000 * PRICE_OVER_4000_FEET_RATE
 
-            first_4000_square_feet_cost = TOTAL_COST_FIRST_1000_SQUARE_FEET + TOTAL_COST_1001_TO_2000_SQUARE_FEET + TOTAL_COST_2001_TO_3000_SQUARE_FEET + TOTAL_COST_3001_TO_4000_SQUARE_FEET
-
-            building_tax = BASE_CHARGE_OVER_4000_FEET + first_4000_square_feet_cost + calculated_cost_of_square_feet_over_4000
+            building_tax = BASE_CHARGE_OVER_4000_FEET + calculated_cost_of_square_feet_over_4000
 
             return building_tax
         
@@ -122,11 +111,6 @@ class Property_Tax:
         BASE_CHARGE_TIER_3 = 1500  # 30001 to 40000
         BASE_CHARGE_TIER_4 = 2400  # > 40000
 
-        TOTAL_COST_FIRST_10000_SQUARE_FEET = 10000 * TIER_0_RATE
-        TOTAL_COST_10001_TO_20000_SQUARE_FEET = 10000 * TIER_1_RATE
-        TOTAL_COST_20001_TO_30000_SQUARE_FEET = 10000 * TIER_2_RATE
-        TOTAL_COST_30001_TO_40000_SQUARE_FEET = 10000 * TIER_3_RATE
-
         if self.land_square_footage <= 10000:
             land_tax = self.land_square_footage * TIER_0_RATE
             return land_tax
@@ -135,7 +119,7 @@ class Property_Tax:
             amount_square_footage_over_10000 = self.land_square_footage - 10000
             calculated_cost_square_footage_over_10000 = amount_square_footage_over_10000 * TIER_1_RATE
 
-            land_tax = BASE_CHARGE_TIER_1 + TOTAL_COST_10001_TO_20000_SQUARE_FEET + calculated_cost_square_footage_over_10000
+            land_tax = BASE_CHARGE_TIER_1 + calculated_cost_square_footage_over_10000
 
             return land_tax
         
@@ -143,9 +127,7 @@ class Property_Tax:
             amount_square_footage_over_20000 = self.land_square_footage - 20000
             calculated_cost_square_footage_over_20000 = amount_square_footage_over_20000 * TIER_2_RATE
 
-            first_20000_square_feet_cost = TOTAL_COST_FIRST_10000_SQUARE_FEET + TOTAL_COST_10001_TO_20000_SQUARE_FEET
-
-            land_tax = BASE_CHARGE_TIER_2 + first_20000_square_feet_cost + calculated_cost_square_footage_over_20000
+            land_tax = BASE_CHARGE_TIER_2 + calculated_cost_square_footage_over_20000
 
             return land_tax
         
@@ -153,9 +135,7 @@ class Property_Tax:
             amount_square_footage_over_30000 = self.land_square_footage - 30000
             calculated_cost_square_footage_over_30000 = amount_square_footage_over_30000 * TIER_3_RATE
 
-            first_30000_square_feet_cost = TOTAL_COST_FIRST_10000_SQUARE_FEET + TOTAL_COST_10001_TO_20000_SQUARE_FEET + TOTAL_COST_20001_TO_30000_SQUARE_FEET
-
-            land_tax = BASE_CHARGE_TIER_3 + first_30000_square_feet_cost + calculated_cost_square_footage_over_30000
+            land_tax = BASE_CHARGE_TIER_3 + calculated_cost_square_footage_over_30000
 
             return land_tax
         
@@ -163,9 +143,7 @@ class Property_Tax:
             amount_square_footage_over_40000 = self.land_square_footage - 40000
             calculated_cost_square_footage_over_40000 = amount_square_footage_over_40000 * TIER_4_RATE
 
-            first_40000_square_feet_cost = TOTAL_COST_FIRST_10000_SQUARE_FEET + TOTAL_COST_10001_TO_20000_SQUARE_FEET + TOTAL_COST_20001_TO_30000_SQUARE_FEET + TOTAL_COST_30001_TO_40000_SQUARE_FEET
-
-            land_tax = BASE_CHARGE_TIER_4 + first_40000_square_feet_cost + calculated_cost_square_footage_over_40000
+            land_tax = BASE_CHARGE_TIER_4 + calculated_cost_square_footage_over_40000
 
             return land_tax
 
@@ -178,8 +156,8 @@ class Property_Tax:
         return 0
 
     def __calc_land_tax_deduction(self):
-        DEDUCTION_PERCENT_RATE_1 = .00245  # land sizes <=30000 square feet
-        DEDUCTION_PERCENT_RATE_2 = .00175  # land sizes > 30000 square feet
+        DEDUCTION_PERCENT_RATE_1 = .0245  # land sizes <=30000 square feet
+        DEDUCTION_PERCENT_RATE_2 = .0175  # land sizes > 30000 square feet
 
         if self.location.upper() == "RURAL":
             if self.land_square_footage <= 30000:
@@ -201,9 +179,3 @@ class Property_Tax:
         return f'Owner Name: {self.property_owner_name}\nBuilding Square Footage: {self.building_square_footage:,}\nLand Square Footage: {self.land_square_footage:,}\nYear Built: {self.year_built}\nProperty Location: {self.location}\nBuilding Age: {self.building_age}\nBuilding Tax: ${self.building_tax:,.2f}\nLand Tax: ${self.land_tax:,.2f}\nBuilding Tax Deduction: ${self.building_tax_deduction:,.2f}\nLand Tax Deduction: ${self.land_tax_deduction:,.2f}\nTotal Property Tax: ${self.total_property_tax:,.2f}'
             
 # endregion instance methods
-    
-
-
-    
-
-        
