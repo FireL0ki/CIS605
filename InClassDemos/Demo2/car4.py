@@ -54,7 +54,8 @@ class Car4:
     
     @property
     def car_size(self):
-        return self.__car_size
+        # return self.__car_size
+        return self.__define_car_size()
 
     # endregion
 

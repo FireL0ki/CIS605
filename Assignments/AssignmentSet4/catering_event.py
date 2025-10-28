@@ -19,19 +19,23 @@ class Catering_Event:
     # region getters
     @property
     def entree_charge(self):
-        return self.__entree_charge
+        # return self.__entree_charge
+        return self.__calc_entree_charge()
     
     @property
     def drinks_charge(self):
-        return self.__drinks_charge
+        # return self.__drinks_charge
+        return self.__calc_drinks_charge()
     
     @property
     def surcharge(self):
-        return self.__surcharge
+        # return self.__surcharge
+        return self.__calc_surcharge()
     
     @property
     def total_charge(self):
-        return self.__total_charge
+        # return self.__total_charge
+        return self.__calc_total_charge()
     
     # endregion
     
