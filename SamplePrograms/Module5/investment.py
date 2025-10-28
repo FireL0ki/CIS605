@@ -7,7 +7,6 @@
 class Investment:
 
     # initializer
-
     def __init__(self, amount, period, rate):
         
         self.__invest_amount = amount
@@ -15,7 +14,6 @@ class Investment:
         self.__invest_rate = rate
     
     # getters
-    
     @property
     def invest_amount(self):
         return self.__invest_amount
@@ -41,7 +39,6 @@ class Investment:
     # private instance methods
 
     # for loop using the range function (with start and stop arguments)
-
     def __calc_fv_using_for_loop1(self):
 
         fv = self.invest_amount

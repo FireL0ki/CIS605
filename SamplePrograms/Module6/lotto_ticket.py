@@ -94,5 +94,3 @@ class Lotto_Ticket:
        random_numbers.sort()
         
        return random_numbers
-    
-     
