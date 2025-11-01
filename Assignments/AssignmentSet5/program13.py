@@ -1,14 +1,13 @@
 # Description: Allows user to choose from a menu to dispay information about championships from a .txt file
 # Developer: Sif Oberon
 # Date Created: 10.28.2025
-# Date Last Modified: 10.29.2025
+# Date Last Modified: 10.31.2025
 
 # import the Wimbledon_Champions class from the wimbledon_champions module
 from wimbledon_champions import Wimbledon_Champions
 
 # module level variable (for referencing a wimbledon champions object) initialized to “None”
 a_champion = None
-
 
 def main():
     # print program header

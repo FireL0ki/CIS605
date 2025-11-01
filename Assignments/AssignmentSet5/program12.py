@@ -1,7 +1,7 @@
 # Description: Program to get user inputs to determine height & velocity of a projectile
 # Developer: Sif Oberon
 # Date Created: 10.28.2025
-# Date Last Modified: 10.29.2025
+# Date Last Modified: 10.31.2025
 
 # import Projectile class from the projectile module
 from projectile import Projectile
@@ -50,22 +50,36 @@ def create_projectile_object(height, velocity):
     global a_projectile
 
     a_projectile = Projectile(initial_height=height, initial_velocity=velocity)
-
+    # call the function to display the projectile object’s state 
     print_projectile_object()
 
+    # call a function to check if the user wishes to enter input for another projectile
+    check_for_additional_projectiles()
+
+# function to print the projectile object’s state
 def print_projectile_object():
     print(a_projectile)
 
 
-# b. call the function to display the projectile object’s state (#6)
-# 6. Has a function to
-# a. print the projectile object’s state
-# b. call the function (#7) to check if the user wishes to enter input for another projectile
-# 7. Has a function to
-# a. ask the user if they wish to create another projectile object
-# b. if yes, call the function (#4) that gets input for a projectile object
-# c. if no, exit the application
-# 8. Calls the “main” function (#3)
+# function to check if user would like to add additional projectiles
+def check_for_additional_projectiles(self):
+    # ask the user if they wish to create another projectile object
+    create_additional_projectile = input("Do you wish to create another projectile (Y or N)?: ")
+
+    #  if yes, call the function that gets input for a projectile object
+    if create_projectile_object.upper() == "Y":
+        get_user_projectile_inputs()
+
+    # if no, exit the application
+    if create_projectile_object.upper() == "N":
+        # TODO exit?
+        print("Program End.")
+
+main()
+
+
+
+# TODO Sample Output
 # Projectile By LV
 # Enter an initial height between 1 and 15 feet: 10
 # Enter an initial velocity between 10 and 500 feet per second: 250
@@ -73,6 +87,7 @@ def print_projectile_object():
 # Initial Velocity: 250 feet per second
 # Maximum Height: 986.56 feet
 # Land Time: 15.67 seconds
+
 # Do you wish to create another projectile (Y or N)?: y
 # Enter an initial height between 1 and 15 feet: 15
 # Enter an initial velocity between 10 and 500 feet per second: 500

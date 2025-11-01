@@ -1,4 +1,4 @@
-# Description: Program to get user inputs to determine height & velocity of a projectile
+# Description: Class for a Wimbledon Champions object
 # Developer: Sif Oberon
 # Date Created: 10.28.2025
 # Date Last Modified: 10.31.2025
@@ -14,7 +14,28 @@ class Wimbledon_Champions:
 
     # public method (with one parameter for the name of a tennis player) to check and return the number of times the player has won the championship
     def get_player_championship_wins(player_name):
-        pass
+        try:
+            # open champions.txt & read (r)
+            with open('champions.txt', 'r') as infile:
+                lines = infile.readlines()
+
+                # iterate over the lines in the file, finding all instances of the input player's name
+                for line in lines:
+                    count = 0
+                    if line == player_name:
+                        count + 1
+                        print(f"Count tracker: {count}")
+                return count
+            
+        except FileNotFoundError as e:
+            print(e)
+
+        except ValueError as e:
+            print(e)
+
+        except Exception as e:
+            print(e)
+
 
     # a public method to find and return the number of times there have been back-to-back champions
     def get_number_back_to_back_champions(self):
