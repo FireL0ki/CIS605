@@ -1,21 +1,19 @@
-# Create a module (water_tank) for a class (Water_Tank) that has 4 instance attributes:
-# o radius (private), depth (private), current water level in gallons (private, getter), maximum water capacity in gallons (private)
-# Note: Assume radius and depth measurements will be in feet
-# 2. An initializer to
-# o initialize the radius and height attributes with parameter values, o initialize the current water level attribute to 0
-# o set the maximum water capacity attribute by calling the instance method below
+# Description: Gets user inputs on entree choices & drinks to calculate total cost
+# Developer: Sif Oberon
+# Date Created: 10.28.2025
+# Date Last Modified: 10.29.2025
 
 # import libraries
 import math
 
-# Water_Tank class with 
+# Water_Tank class with 4 instance attributes, all private: radius, depth, current water level & max water capacity in gallons
 class water_Tank:
     def __init__(self, radius, depth, current_water_level_gallons, max_water_capacity_gallons):
         self.__radius = radius
         self.__depth = depth
         self.__current_water_level_gallons = current_water_level_gallons
-        self.__max_water_capacity_gallons = max_water_capacity_gallons
-    
+        self.__max_water_capacity_gallons = __calc_max_water_capacity()
+
     # region getters
     @property
     def radius(self):
@@ -48,8 +46,9 @@ def add_water_to_tank(self, gallons_water_to_add):
     capacity_available_in_tank = self.max_water_capacity_gallons - self.current_water_level_gallons
     # check if water_added is less than capacity left in tank
     if gallons_water_to_add <= capacity_available_in_tank:
+        # if so, add the gallons_water_to_add to the current wanter in tank
         self.current_water_level_gallons += gallons_water_to_add
-        # return an appropriate message a) confirming the gallons of water added, and b) the tank’s current water level
+        # return a message confirming the gallons of water added & the tank’s current water level
         return f"{gallons_water_to_add} were added to the tank. The tank's water level is now: {self.current_water_level_gallons}."
     
     elif gallons_water_to_add > capacity_available_in_tank:
@@ -58,27 +57,45 @@ def add_water_to_tank(self, gallons_water_to_add):
 
 # public method (with one parameter for the gallons of water to withdraw) to withdraw water from the tank
 def withdraw_water_from_tank(self, gallons_water_to_withdraw):
-    # if the number of gallons to be withdrawn is available in the tank, withdraw the water from the tank. 
+    # check if the number of gallons to be withdrawn is available in the tank
+    if gallons_water_to_withdraw <= self.current_water_level_gallons:
+        # withdraw the water & return message confirming amount withdrawn, tank's current water level
+        self.current_water_level_gallons -= gallons_water_to_withdraw
+        return f"Withdrawing {gallons_water_to_withdraw} gallons from the tank. The current water level is now: {self.current_water_level_gallons}."
     
-    # return message confirming gallons water withdrawn, tank's current water level
-
     # if the number of gallons to be withdrawn exceeds what the tank currently contains, do not withdraw the water
-    # return message a) indicating not enough water, and b) the max # of gallons that can be withdrawn from the tank 
-    # (i.e., the tank’s current water level).
+    elif gallons_water_to_withdraw > self.current_water_level_gallons:
+    # return message indicating not enough water, & the max # of gallons that can be withdrawn from the tank 
+        return f"There are not {gallons_water_to_withdraw} gallons available in the water tank. The max amount available to withdraw is {self.current_water_level_gallons} gallons."
 
-# • A public method (with one parameter for the gallons of water to add per second) to fill the tank at
+# public method (with one parameter for the gallons of water to add per second) to fill the tank at
 # a certain rate (i.e., gallons per second)
-# o If the number of gallons that will fill the tank in a second will not cause the tank to
-# overflow, fill the tank. Return a value of true.
-# o If the number of gallons that will fill the tank in a second will cause the tank to overflow,
-# do not fill the tank. Return a value of false.
+def fill_rate_per_second(self, gallons_to_add_per_second):
+    capacity_available_in_tank = self.max_water_capacity_gallons - self.current_water_level_gallons
+    # check if the # of gallons that will fill the tank in a second will not cause the tank to overflow
+    if gallons_to_add_per_second > capacity_available_in_tank:
+        self.current_water_level_gallons += gallons_to_add_per_second
+        # return a value of true
+        return True
+    # if gallons per second added will cause the tank to overflow, do not fill the tank
+    else:
+        # return a value of false.
+        return False
 
-# • A public method (with one parameter for the gallons of water to drain per second) to drain the
+# public method (with one parameter for the gallons of water to drain per second) to drain the
 # tank at a certain rate (i.e., gallons per second)
-# o If the number of gallons that will drain from the tank in a second is available in the tank,
-# drain the tank. Return a value of true.
-# o If the number of gallons that will drain from the tank in a second is not available in the
-# tank, do not drain the tank. Return a value of false.
+def drain_rate_per_second(self, gallons_to_drain_per_second):
+    # check if the # of gallons to be drained is <= the current tank water level
+    if gallons_to_drain_per_second > self.current_water_level_gallons:
+        self.current_water_level_gallons -= gallons_to_drain_per_second
+        # return a value of true
+        return True
+    # if the number of gallons that will drain from the tank in a second is available in the tank, drain the tank. 
+    else:
+        # return a value of false.
+        return False
 
-# 6. A __str__ method that returns relevant information about a water_tank object’s state (i.e.,
+# __str__ method that returns relevant information about a water_tank object’s state (i.e.,
 # its attributes and their current values) as a string with appropriate labels and formatting.
+def __str__(self): # TODO
+    return f"Tank Radius: {self.radius}\nTank Depth: {self.depth}"

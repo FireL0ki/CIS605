@@ -68,6 +68,7 @@ def read_data():
 
 # function to create a stock_analyzer object
 
+
 def create_object(prices):
      
     # to modify the module-level variable, it must be declared as global within the function
