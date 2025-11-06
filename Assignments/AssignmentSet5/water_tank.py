@@ -7,8 +7,8 @@
 import math
 
 # Water_Tank class with 4 instance attributes, all private: radius, depth, current water level & max water capacity in gallons
-class water_Tank:
-    def __init__(self, radius, depth, current_water_level_gallons, max_water_capacity_gallons):
+class Water_Tank:
+    def __init__(self, radius, depth, current_water_level_gallons):
         self.__radius = radius
         self.__depth = depth
         self.__current_water_level_gallons = current_water_level_gallons
@@ -49,7 +49,7 @@ def add_water_to_tank(self, gallons_water_to_add):
         # if so, add the gallons_water_to_add to the current wanter in tank
         self.current_water_level_gallons += gallons_water_to_add
         # return a message confirming the gallons of water added & the tank’s current water level
-        return f"{gallons_water_to_add} were added to the tank. The tank's water level is now: {self.current_water_level_gallons}."
+        return f"{gallons_water_to_add} were added to the tank. The tank's water level is now: {self.current_water_level_gallons}."f
     
     elif gallons_water_to_add > capacity_available_in_tank:
         # return message indicating the tank will overflow, current water level, & maximum available capacity
@@ -70,7 +70,7 @@ def withdraw_water_from_tank(self, gallons_water_to_withdraw):
 
 # public method (with one parameter for the gallons of water to add per second) to fill the tank at
 # a certain rate (i.e., gallons per second)
-def fill_rate_per_second(self, gallons_to_add_per_second):
+def fill_water_per_second(self, gallons_to_add_per_second):
     capacity_available_in_tank = self.max_water_capacity_gallons - self.current_water_level_gallons
     # check if the # of gallons that will fill the tank in a second will not cause the tank to overflow
     if gallons_to_add_per_second > capacity_available_in_tank:
@@ -84,7 +84,7 @@ def fill_rate_per_second(self, gallons_to_add_per_second):
 
 # public method (with one parameter for the gallons of water to drain per second) to drain the
 # tank at a certain rate (i.e., gallons per second)
-def drain_rate_per_second(self, gallons_to_drain_per_second):
+def drain_water_per_second(self, gallons_to_drain_per_second):
     # check if the # of gallons to be drained is <= the current tank water level
     if gallons_to_drain_per_second > self.current_water_level_gallons:
         self.current_water_level_gallons -= gallons_to_drain_per_second
