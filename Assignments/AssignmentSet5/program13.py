@@ -20,29 +20,23 @@ def main():
 # a function to get data from champions.txt and create a list of champions
 def get_champions_data():
     champions_list = []
-
     try:
         # open champions.txt & read (r)
         with open('champions.txt', 'r') as infile:
             # read lines from the file and return as a list of strings
             champions = infile.readlines()
-
             # iterate over the lines in the file, putting the champions into a list
             for champion in champions:
                 champion = champion.lower()
                 # add champions to the champion list and strip white space
                 champions_list.append(champion.strip())
-
     # error handling
     except FileNotFoundError as e:
         print(e)
-
     except ValueError as e:
         print(e)
-
     except Exception as e:
         print(e)
-
     # call the function that creates/instantiates a wimbledon champions object
     create_champion_object(champions_list=champions_list)
 
@@ -59,14 +53,12 @@ def display_menu():
     print("1) Display the number of times there have been back-to-back champions")
     print("2) Display the number of times a player has won the championship")
     print("3) Exit the application")
-
     try:
         while True:
             user_selection = int(input("Enter our choice (1-3): "))
             if 1 <= user_selection <= 3: break
     except:
         print("Input error")
-
     # call method to get user selection
     call_menu_function(user_selection)
 
