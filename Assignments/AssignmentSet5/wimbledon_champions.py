@@ -24,7 +24,6 @@ class Wimbledon_Champions:
                 wins_count +=1
         return wins_count
 
-
     # a public method to find and return the number of times there have been back-to-back champions
     def get_number_back_to_back_champions(self):
         back_to_back_count = 0
@@ -34,17 +33,10 @@ class Wimbledon_Champions:
         i = 0
         # iterate over the list of champions
         while i < len(champions) - 1:
-            # compare current (index [i] and next winner to see if they match
-            if champions[i] == champions[i +1]:
-                # add to the count
+            # compare current (index [i] and next winner[i + 1] to see if they match
+            if champions[i] == champions[i + 1]:
+                # if so, add to the count
                 back_to_back_count += 1
-                # skip to the next champion (since by comparing 1 & 2, champion 2 has already been counted if they were part of a back to back win)
-                # while the current iteration plus 1 (comparing the index following the initial, every other)is less than the length of champions - 1 (don't need to go beyond the second to last index)
-                # AND if the champion in the next index after the current is the same as the one after that
-                # ex: on index 1 (which has already been compared and matched index 2) and the next index [2] also matches index [3], that is 3 wins in a row, and the first back to back has already been counted
-                # while i + 1 < len(champions) - 1 and champions[i + 1] == champions[i + 2]:
-                #     # skip to the next champion / index
-                #     i += 1
             # move to next index
             i += 1
         return back_to_back_count

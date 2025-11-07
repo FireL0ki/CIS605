@@ -19,12 +19,11 @@ def main():
 
 # a function to get data from champions.txt and create a list of champions
 def get_champions_data():
-    # TODO this needs to be saved to the champions object or it will not persist
     champions_list = []
 
     try:
         # open champions.txt & read (r)
-        with open('S:\CIS605\Assignments\AssignmentSet5\champions.txt', 'r') as infile:
+        with open('champions.txt', 'r') as infile:
             # read lines from the file and return as a list of strings
             champions = infile.readlines()
 
