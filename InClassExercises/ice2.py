@@ -42,13 +42,11 @@ def calc_product_price(price, rate, num_years):
 # 9       $14.77
 # 10      $15.51
 
-
-        
-    
+ 
 # Write a function (with three parameters - for current tuition, tuition increase (percentage) per year, number of years in program) that prints, for each year in the program, the tuition amount. Use a while loop. Assume the tuition increase percentage will remain the same for all years.
 
-# Sample Output
 
+# Sample Output
 # import ice2
 # ice2.calc_tuition(20000,3,4)
 
@@ -58,12 +56,9 @@ def calc_product_price(price, rate, num_years):
 # 2       $20,600.00
 # 3       $21,218.00
 # 4       $21,854.54
-
-
         
 
 # Write a function that uses a nested loop to print the following pattern:
-
 # import ice2
 # >>> ice2.print_pattern()
 

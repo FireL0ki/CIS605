@@ -98,7 +98,7 @@ def speed_up():
             print(f"{a_car.current_speed} mph")
         else:
             print(f"Car has reached max speed or speec cannot be increased any further.")
-        display_menu()
+    display_menu()
 
 def speed_up():
     try:
