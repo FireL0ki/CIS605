@@ -55,12 +55,15 @@ def display_menu():
     print("3) Exit the application")
     try:
         while True:
-            user_selection = int(input("Enter our choice (1-3): "))
+            user_selection = int(input("Enter your choice (1-3): "))
             if 1 <= user_selection <= 3: break
+            else:
+                print("Please select a number between 1-3")
     except:
         print("Input error")
-    # call method to get user selection
-    call_menu_function(user_selection)
+    else:
+        # call method to get user selection
+        call_menu_function(user_selection)
 
 # method to call appropriate function based on user selection
 def call_menu_function(user_selection):
@@ -79,21 +82,11 @@ def get_number_of_back_to_back_champions():
 
 # function to get user input (using an appropriate prompt) for a player’s name
 def get_number_of_championship_wins_for_player():
-    try:
-        while True:
-            player_name = input("Enter a player's name: ").lower()
-
-            print(f"champions list: {a_champion.champions}")
-            if player_name in a_champion.champions: 
-                break
-    except:
-        print("Input error")
-        get_number_of_championship_wins_for_player()
-    else:
-        # call the method that returns the number of times a player has won the championship and
-        # display the result with appropriate wording
-        number_championships = a_champion.get_player_championship_wins(player_name=player_name)
-        print(f"{player_name} has won the championship {number_championships} times")
+    player_name = input("Enter a player's name: ").lower()
+    # call the method that returns the number of times a player has won the championship and
+    # display the result with appropriate wording
+    number_championships = a_champion.get_player_championship_wins(player_name=player_name)
+    print(f"{player_name} has won the championship {number_championships} times")
     # call the function to display the menu
     display_menu()
 

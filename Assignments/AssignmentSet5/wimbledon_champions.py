@@ -17,7 +17,6 @@ class Wimbledon_Champions:
         wins_count = 0
         # for each champion in the champions list
         for champion in self.__champions:
-            (print(f" Champion: {champion}"))
             # check if the current index name matches the name entered by the user
             if champion.lower() == player_name.lower():
                 # if so, add to the count
