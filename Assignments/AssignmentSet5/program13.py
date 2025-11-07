@@ -19,11 +19,12 @@ def main():
 
 # a function to get data from champions.txt and create a list of champions
 def get_champions_data():
+    # TODO this needs to be saved to the champions object or it will not persist
     champions_list = []
 
     try:
         # open champions.txt & read (r)
-        with open('champions.txt', 'r') as infile:
+        with open('S:\CIS605\Assignments\AssignmentSet5\champions.txt', 'r') as infile:
             # read lines from the file and return as a list of strings
             champions = infile.readlines()
 
@@ -89,8 +90,10 @@ def get_number_of_back_to_back_champions():
 def get_number_of_championship_wins_for_player():
     try:
         while True:
-            player_name = input("Enter a player's name: ")
-            if player_name.lower() in a_champion.champions: 
+            player_name = input("Enter a player's name: ").lower()
+
+            print(f"champions list: {a_champion.champions}")
+            if player_name in a_champion.champions: 
                 break
     except:
         print("Input error")

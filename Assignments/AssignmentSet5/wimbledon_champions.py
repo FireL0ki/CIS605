@@ -42,9 +42,9 @@ class Wimbledon_Champions:
                 # while the current iteration plus 1 (comparing the index following the initial, every other)is less than the length of champions - 1 (don't need to go beyond the second to last index)
                 # AND if the champion in the next index after the current is the same as the one after that
                 # ex: on index 1 (which has already been compared and matched index 2) and the next index [2] also matches index [3], that is 3 wins in a row, and the first back to back has already been counted
-                while i + 1 < len(champions) - 1 and champions[i + 1] == champions[i + 2]:
-                    # skip to the next champion / index
-                    i += 1
+                # while i + 1 < len(champions) - 1 and champions[i + 1] == champions[i + 2]:
+                #     # skip to the next champion / index
+                #     i += 1
             # move to next index
             i += 1
         return back_to_back_count
