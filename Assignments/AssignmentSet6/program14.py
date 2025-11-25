@@ -1,7 +1,7 @@
-# Description: 
+# Description: Program that makes use of the Stock Analyzer class to provide stock analysis to user
 # Developer: Sif Oberon
 # Date Created: 11.17.2025
-# Date Last Modified: 
+# Date Last Modified: 11.25.2025
 
 from stock_analyzer import Stock_Analyzer
 
@@ -9,7 +9,7 @@ from stock_analyzer import Stock_Analyzer
 a_stock_analyzer = None
 
 def main():
-    print(f"Stock Analyer Program")
+    print(f"Stock Analyzer Program")
     get_user_stock_analysis_input()
 
 # function to get user input (using an appropriate prompt and validation) for a stock analyzer object
@@ -24,7 +24,7 @@ def get_user_stock_analysis_input():
         get_user_stock_analysis_input()
     else: 
         # capitalize and assign the input value to a variable
-        capitialized_ticker_symbol = ticker_symbol.capitalize()
+        capitalized_ticker_symbol = ticker_symbol.capitalize()
     
         # open the arm_prices.txt file, read, convert, and append the data to a list
         stock_prices_list = []
@@ -36,7 +36,7 @@ def get_user_stock_analysis_input():
                 # iterate over the lines in the file, putting the prices into a list
                 for price in prices:
                     # add prices to the price list and strip white space
-                    stock_prices_list.append(price.strip())
+                    stock_prices_list.append(float(price.strip()))
         # error handling
         except FileNotFoundError as e:
             print(e)
@@ -46,7 +46,7 @@ def get_user_stock_analysis_input():
             print(e)
 
         # call the function that creates/instantiates a stock analyzer object
-        create_stock_analyzer_object(capitialized_ticker_symbol, stock_prices_list)
+        create_stock_analyzer_object(capitalized_ticker_symbol, stock_prices_list)
 
 # function to create a stock analyzer object and assign it to the module level variable
 def create_stock_analyzer_object(ticker_symbol, stock_prices):
@@ -70,8 +70,9 @@ def display_menu():
     # get the user’s choice (i.e., 1-6) with an appropriate prompt and validation
     try:
         while True:
-            user_selection = int(input("Enter our choice (1-6): "))
-            if 1 <= user_selection <= 6: break
+            user_selection = int(input("Enter your choice (1-6): "))
+            if 1 <= user_selection <= 6:
+                break
     except:
         print("Input error")
     # call function that calls the function associated with the user’s menu choice
@@ -96,29 +97,32 @@ def print_stock_analyzer_state():
 # function to call the method that finds the smallest absolute price change and display the returned
 # value with appropriate wording and formatting
 def find_smallest_absolute_price_change():
-    pass
-    
+    smallest_price_change = a_stock_analyzer.find_smallest_price_change()
+    print(f"The smallest absolute price change between two consecutive trading days is: {smallest_price_change}")
     # call the function to display the menu
     display_menu()
 
 # function to call the method that finds the largest percentage gain in price and display the returned
 # value with appropriate wording and formatting
 def find_largest_percentage_price_gain():
-    pass
+    largest_percentage_gain = a_stock_analyzer.find_largest_consecutive_percentage_gain()
+    print(f"The largest percentage gain between two consecutive trading days is: {largest_percentage_gain}")
     # call the function to display the menu
     display_menu()
 
 # function to call the method that finds the number of times there is a positive change in price and
 # display the returned value with appropriate wording and formatting
 def find_number_times_positive_price_change():
-    pass
+    number_times_pos_change = a_stock_analyzer.find_number_times_positive_price_change()
+    print(f"The number of times there is a positive change in price is: {number_times_pos_change}")
     # call the function to display the menu
     display_menu()
 
 # function to call the method that finds the longest price decline streak and display the returned value
 # with appropriate wording and formatting
 def find_longest_consecutive_price_decline():
-    pass
+    longest_price_decline = a_stock_analyzer.find_longest_continuous_price_decline()
+    print(f"The longest period of continuous price decline is {longest_price_decline} days")
     # call the function to display the menu
     display_menu()
 
@@ -132,7 +136,6 @@ def exit_application():
     else:
         # else, call the function to display the menu
         display_menu()
-
 
 # call the “main” function
 main()
