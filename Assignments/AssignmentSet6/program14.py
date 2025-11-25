@@ -98,7 +98,7 @@ def print_stock_analyzer_state():
 # value with appropriate wording and formatting
 def find_smallest_absolute_price_change():
     smallest_price_change = a_stock_analyzer.find_smallest_price_change()
-    print(f"The smallest absolute price change between two consecutive trading days is: {smallest_price_change}")
+    print(f"The smallest absolute price change between two consecutive trading days is: ${smallest_price_change:,.2}")
     # call the function to display the menu
     display_menu()
 
@@ -106,7 +106,7 @@ def find_smallest_absolute_price_change():
 # value with appropriate wording and formatting
 def find_largest_percentage_price_gain():
     largest_percentage_gain = a_stock_analyzer.find_largest_consecutive_percentage_gain()
-    print(f"The largest percentage gain between two consecutive trading days is: {largest_percentage_gain}")
+    print(f"The largest percentage gain between two consecutive trading days is: {largest_percentage_gain:.2}%")
     # call the function to display the menu
     display_menu()
 
