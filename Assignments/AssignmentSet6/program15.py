@@ -55,11 +55,14 @@ def get_user_score_input():
             # open pars.txt & read (r)
             with open('pars.txt', 'r') as infile:
                 # read lines from the file and return as a list of strings
-                lines = infile.readlines()
+                line = infile.readline().strip()
                 # iterate over the lines in the file, putting the scores into a list
-                for line in lines:
-                    line = line.strip()
-                    pars_list.append(int(line))
+                items = line.split(",") # split up lines by comma
+            # convert each part to an integer and append to the list
+            for item in items:
+                item = item.strip()  # remove spaces
+                par_value = int(item)
+                pars_list.append(par_value)
 
         # error handling
         except FileNotFoundError as e:
@@ -72,13 +75,20 @@ def get_user_score_input():
         # open the lee_scores.txt file, read, split, convert and append the data to a nested list
         nested_scores_list = []
         try:
-            # open lee_scores.txt & read (r)
             with open('lee_scores.txt', 'r') as infile:
-                # read lines from the file and return as a list of strings
-                scores = infile.readlines()
                 for line in infile:
-                    # append the scores to the nested_scores_list, removing extra spaces
-                    nested_scores_list.append([int(score) for score in line.strip().split()])
+                    # remove any excess whitespace
+                    line = line.strip()
+                    # split scores by comma
+                    score_strings = line.split(",")
+
+                    round_scores = []
+                    for score_string in score_strings:
+                        score_string = score_string.strip()
+                        score_value = int(score_string)
+                        round_scores.append(score_value)
+
+                    nested_scores_list.append(round_scores)
                     
         # error handling
         except FileNotFoundError as e:
@@ -113,7 +123,7 @@ def display_menu():
     # get the user’s choice (i.e., 1-6) with an appropriate prompt and validation
     try:
         while True:
-            user_selection = int(input("Enter our choice (1-6): "))
+            user_selection = int(input("Enter your choice (1-6): "))
             if 1 <= user_selection <= 6: 
                 break
     except:
