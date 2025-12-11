@@ -3,22 +3,58 @@
 # Date Created: 12.7.2025
 # Date Last Modified: 
 
-# Create another module (program16.py) that
-# 1. Has a module level variable (for referencing an order manager object) initialized to “None”
-# 2. Has a “main” function” to
-# a. print a suitable header
-# b. call the function (#3) that creates an order manager object
-# 3. Has a function to
-# a. create/instantiate an order manager object and assign it to the module level variable
-# b. call the function (#4) to display a menu
-# 4. Has a function to
-# a. display the following menu of options:
-# 1) Add an order
-# 2) Display all orders
-# 3) Highest order total
-# 4) Average order total for a combo menu item
-# 5) Display sum of order totals for each combo menu item
-# 6) Save orders
-# 7) Exit the application
-# b. get the user’s choice (i.e., 1-7) with an appropriate prompt and validation
-# c. call the function (#5) that calls the function associated with the user’s menu choice
+
+# module level variable (for referencing an order manager object) initialized to “None”
+an_order_manager = None
+
+def main():
+    # print header
+    print('Ordering Program')
+    # call function to create an order manager object
+    create_order_manager_object()
+
+
+    # a function to create/instantiate an order manager object and assign it to the module level variable
+    def create_order_manager_object():
+        global an_order_manager
+        # call the function to display a menu
+        display_menu()
+
+
+    # function to display the menu of options
+    def display_menu():
+        print("\n--------- Menu ---------")
+        print("1) Add an order")
+        print("2) Display all orders")
+        print("3) Highest order total")
+        print("4) Average order total for a combo menu item")
+        
+        try:
+            while True:
+                user_selection = int(input("Enter our choice (1-4): "))
+                if 1 <= user_selection <= 4: break
+        except:
+            print("Input error")
+
+        # call method to get user selection
+        call_menu_function(user_selection)
+
+    # method to call appropriate function based on user selection
+    def call_menu_function(user_selection):
+        match user_selection:
+            case 1: add_an_order()
+            case 2: display_all_orders()
+            case 3: highest_order_total()
+            case 4: average_order_total_for_combo_item()
+
+
+    # 5) display sum of order totals for each combo menu item
+    def display_sum_order_totals_per_combo_item():
+        # TODO
+        pass
+
+    # 6) Save orders
+
+    # 7) Exit the application
+
+
