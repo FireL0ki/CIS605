@@ -7,7 +7,7 @@ from combo_menu import Combo_Menu
 # Create a module (order) for a class (Order) that has 4 instance attributes: 
 # customer name (public), combo choice (public; type: Combo_Menu), quantity (public), order total (private, getter)
 class Order:
-    def __init__(self, customer_name, combo_choice: Combo_Menu, quantity, __order_total):
+    def __init__(self, customer_name: str, combo_choice: Combo_Menu, quantity: int, __order_total: float):
         self.customer_name = customer_name
         self.combo_choice = combo_choice
         self.quantity = quantity

@@ -6,6 +6,7 @@
 import os
 import pickle
 from order import Order
+from combo_menu import Combo_Menu
 
 class Order_Manager:
     # class variable for the name of the file (ordersdata.dat) that will be used to store and retrieve order objects
@@ -14,12 +15,10 @@ class Order_Manager:
     # initializer to that calls a private instance method to load order objects into the orders dictionary 
     def __init__(self):
         self.__orders_dictionary = self.__check_orders_dictionary()
-
     # 1 instance attribute: orders dictionary (private, getter) for storing order objects
     @property
     def orders_dictionary(self):
         return self.__orders_dictionary
-
 
     # private instance method to check if the file (ordersdata.dat) exists
     def __check_orders_dictionary(self):
@@ -27,15 +26,14 @@ class Order_Manager:
         # if the file exists, load the data into the orders dictionary
         if os.path.exists(filename):
             try:
-                with open (filename, "r") as file:
+                with open (filename, "rb") as file:
                     data = pickle.load(file)
-
+                    return data
             except (EOFError, pickle.UnpicklingError):
                 print("Could not read data file.")
         # if the file does not exist, assign an empty dictionary to orders dictionary
         else:
             return {}
-
 
     # public instance method (with appropriate parameters) to instantiate an order object and add it to the orders dictionary (use customer name as the key)
     def create_order_object(self, customer_name, combo_choice, quantity):
@@ -57,8 +55,10 @@ class Order_Manager:
         orders = []
         # for each customer and order in the items within __orders_dictionary
         for customer, order in self.__orders_dictionary.items():
-            # TODO check logic
+            # TODO tuple or str?
             orders.append(customer, order)
+            # return orders separated by lines
+            return "\n".join(orders)
         
 
     # public instance method to find and return the highest order total among all the orders in the orders dictionary
@@ -73,16 +73,16 @@ class Order_Manager:
 
 
     # public instance method (with an appropriate parameter) to calculate and return the average order total for a particular combo menu item (e.g., box).
-    def calc_average_order_total_for_combo_item(self):
+    def calc_average_order_total_for_combo_item(self, combo_choice):
         # if there are no orders, return a suitable message
         if not self.__orders_dictionary:
             return "No orders currently in the system."
         
         # get all orders for combo item
         combo_orders = [
-            Order.order_total
+            order.order_total
             for order in self.__orders_dictionary.values()
-            if order.combo_choice == order.combo_choice
+            if order.combo_choice == combo_choice
         ]
         if not combo_orders:
             return f"There are no orders for the combo item: {combo_choice}."
@@ -110,7 +110,7 @@ class Order_Manager:
         for order in self.__orders_dictionary.values():
             totals[order.combo_choice] += order.order_total
 
-        # Build formatted output
+        # create user friendly output of combo items totals
         orders = ["Total Order Amounts Per Combo Item:"]
         for combo, total in totals.items():
             orders.append(f"{combo.name}: ${total:.2f}")
@@ -127,6 +127,6 @@ class Order_Manager:
         with open(self.FILENAME, "wb") as file:
             pickle.dump(self.__orders_dictionary, file)
 
-            return f"Orders have been saved to '{self.FILENAME}'."
+        return f"Orders have been saved to '{self.FILENAME}'."
 
 

@@ -48,13 +48,39 @@ def main():
             case 4: average_order_total_for_combo_item()
 
 
+    def add_an_order():
+        pass
+
+    def display_all_orders():
+        pass
+
+    def highest_order_total():
+        pass
+
+    def average_order_total_for_combo_item():
+        pass
+    
     # 5) display sum of order totals for each combo menu item
     def display_sum_order_totals_per_combo_item():
         # TODO
         pass
 
     # 6) Save orders
+    def save_orders():
+        # TODO
+        pass
 
-    # 7) Exit the application
+    # function to exit the application
+    def exit_application():
+        user_response = input("Would you like to exit the application? (Y / N): ")
+
+        if user_response.upper() == "Y":
+            # if yes, exit the application
+            exit()
+        else:
+            # else, call the function to display the menu
+            display_menu()
+
+main()
 
 
