@@ -1,7 +1,7 @@
 # Description: Module for the Order Manager class to save and manager order objects
 # Developer: Sif Oberon
 # Date Created: 12.7.2025
-# Date Last Modified: 
+# Date Last Modified: 12.14.2025
 
 import os
 import pickle
@@ -42,24 +42,23 @@ class Order_Manager:
         self.__orders_dictionary[customer_name] = new_order_object
 
         # return a confirmation message
-        return f"Successfully created order for {customer_name}. Total: ${new_order_object.order_total:.2f}"
+        return f"Added - Customer Name: {customer_name}. Menu Choice: {new_order_object.combo_name} Combo Quantity: {new_order_object.quantity} Total: ${new_order_object.order_total:.2f}"
 
 
     # public instance method to return all the orders in the orders dictionary.
     def get_all_orders(self):
         # if there are no orders, return a suitable message
         if not self.__orders_dictionary:
-            return "No orders currently in the system."
+            return "There are no orders to display."
 
         # empty list ot hold the orders from the dictionary
         orders = []
-        # for each customer and order in the items within __orders_dictionary
-        for customer, order in self.__orders_dictionary.items():
-            # TODO tuple or str?
-            orders.append(customer, order)
-            # return orders separated by lines
-            return "\n".join(orders)
+        # get all the orders from the dictionary and put them into a list
+        for order in self.__orders_dictionary.values():
+            orders.append(str(order))
         
+        # return the list separated by new lines
+        return "\n".join(orders)
 
     # public instance method to find and return the highest order total among all the orders in the orders dictionary
     def get_highest_order_total(self):
@@ -67,12 +66,10 @@ class Order_Manager:
         if not self.__orders_dictionary:
             return "No orders currently in the system."
 
-        # TODO refactor logic
         highest = max(order.order_total for order in self.__orders_dictionary.values())
-        return f"Highest order total: ${highest:.2f}"
+        return f"The highest order total among all the orders is: ${highest:.2f}"
 
-
-    # public instance method (with an appropriate parameter) to calculate and return the average order total for a particular combo menu item (e.g., box).
+    # public instance method to calculate and return the average order total for a particular combo menu item (e.g., box).
     def calc_average_order_total_for_combo_item(self, combo_choice):
         # if there are no orders, return a suitable message
         if not self.__orders_dictionary:
@@ -89,7 +86,7 @@ class Order_Manager:
         # calculate average (sum of combo orders divided by the total number combo orders)
         avg_total = sum(combo_orders) / len(combo_orders)
 
-        return f"The average order total for {combo_choice} is: ${avg_total:.2f}"
+        return f"The average order total for {combo_choice.name.title()} orders is: ${avg_total:.2f}"
 
     # public instance method to calculate and return the sum of all order totals for each combo menu item
     def sum_all_order_totals_per_combo_item(self):
@@ -111,22 +108,21 @@ class Order_Manager:
             totals[order.combo_choice] += order.order_total
 
         # create user friendly output of combo items totals
-        orders = ["Total Order Amounts Per Combo Item:"]
+        orders = ["Sum of Order Totals:"]
         for combo, total in totals.items():
-            orders.append(f"{combo.name}: ${total:.2f}")
+            orders.append(f"{combo.name} Combo: ${total:.2f}")
 
         return orders
 
     # public instance method to check if there are orders in the orders dictionary
-    # o if there are orders, save the orders data to ordersdata.dat and return a confirmation message
-    # o if there are no orders, return a suitable message
     def check_if_orders(self):
+        # if there are no orders, return a suitable message
         if not self.__orders_dictionary:
             return "There are no orders to save."
-
+        # if there are orders, save the orders data to ordersdata.dat
         with open(self.FILENAME, "wb") as file:
             pickle.dump(self.__orders_dictionary, file)
-
+        # return a confirmation message  
         return f"Orders have been saved to '{self.FILENAME}'."
 
 

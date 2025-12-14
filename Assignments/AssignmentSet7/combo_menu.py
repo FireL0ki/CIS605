@@ -1,15 +1,9 @@
-# Description: A module for menu choices
+# Description: A module for menu choices as an enumeration
 # Developer: Sif Oberon
 # Date Created: 12.7.2025
-# Date Last Modified: 
+# Date Last Modified: 12.13.2025
 
-# Create a module (combo_menu) for an enumeration (Combo_Menu) with the following members:
-# BOX = 1
-# CANIAC = 2
-# FINGERS = 3
-# SANDWICH = 4
-# KIDS = 5
-
+# module (combo_menu) for an enumeration (Combo_Menu)
 from enum import Enum
 
 class Combo_Menu(Enum):

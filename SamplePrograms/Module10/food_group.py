@@ -5,7 +5,7 @@
 # Date:             November 2025
 
 # From Gemini - An enumeration, or enum, in Python is a set of symbolic names (members) that are bound to unique, constant values. 
-# They are created by subclassing enum.Enum to make code more readable, maintainable, and less error-prone by replacing "magic" numbers or strings with meaningful labels.
+# They are created by subclassing enum. Enum to make code more readable, maintainable, and less error-prone by replacing "magic" numbers or strings with meaningful labels.
 
 from enum import Enum
 
